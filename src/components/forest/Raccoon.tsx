@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-type RaccoonAction = 'idle' | 'walk' | 'dig' | 'prune' | 'water' | 'sweep' | 'type' | 'tea';
+export type RaccoonAction = 'idle' | 'walk' | 'dig' | 'prune' | 'water' | 'sweep' | 'type' | 'tea';
 
 interface RaccoonProps {
     action: RaccoonAction;

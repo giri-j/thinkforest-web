@@ -29,7 +29,7 @@ export default function AchievementScroll() {
   const bookListRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+
   const [rotationAngle, setRotationAngle] = useState(0);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
@@ -80,12 +80,12 @@ export default function AchievementScroll() {
   }, []);
 
   const rotateLeft = () => {
-    setCurrentIndex((prev) => (prev - 1 + totalBooks) % totalBooks);
+
     setRotationAngle((prev) => prev + angleStep);
   };
 
   const rotateRight = () => {
-    setCurrentIndex((prev) => (prev + 1) % totalBooks);
+
     setRotationAngle((prev) => prev - angleStep);
   };
 

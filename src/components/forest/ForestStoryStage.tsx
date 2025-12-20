@@ -2,7 +2,7 @@
 
 import { useRef, useMemo, useState } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
-import Raccoon from './Raccoon';
+import Raccoon, { RaccoonAction } from './Raccoon';
 
 // Parallax Layer Component
 function ParallaxLayer({
@@ -96,7 +96,7 @@ export default function ForestStoryStage() {
                 {/* Character Layer (Moves slightly different to keep center focus but feeling of travel) */}
                 <div className="absolute bottom-[100px] left-1/2 transform -translate-x-1/2 z-30">
                     <Raccoon
-                        action={(currentScene < 6 ? scenes[currentScene]?.action : 'tea') as any}
+                        action={(currentScene < 6 ? scenes[currentScene]?.action : 'tea') as RaccoonAction}
                     />
                 </div>
 
