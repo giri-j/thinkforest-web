@@ -1,8 +1,9 @@
 'use client';
 
-import { useRef, useMemo, useState } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useScroll, useTransform, motion, MotionValue } from 'framer-motion';
 import Raccoon, { RaccoonAction } from './Raccoon';
+import { FOREST_SCENES } from '../../constants/data';
 
 // Parallax Layer Component
 function ParallaxLayer({
@@ -40,19 +41,17 @@ export default function ForestStoryStage() {
     );
 
     const [currentScene, setCurrentScene] = useState(0);
-    useMemo(() => sceneIndex.on('change', (latest) => {
-        const rounded = Math.floor(latest);
-        if (rounded !== currentScene) setCurrentScene(rounded);
-    }), [sceneIndex, currentScene]);
 
-    const scenes = [
-        { id: 1, action: 'dig', text: "처음하는 사업,\n맨땅에 삽질하기!" },
-        { id: 2, action: 'prune', text: "복잡한 문제\n가지치기" },
-        { id: 3, action: 'water', text: "지속적인\n관리와 애정" },
-        { id: 4, action: 'sweep', text: "버그와\n군더더기 청소" },
-        { id: 5, action: 'type', text: "기획과 디자인\n설계" },
-        { id: 6, action: 'tea', text: "여유와\n회고의 시간" },
-    ];
+    useEffect(() => {
+        const unsubscribe = sceneIndex.on('change', (latest) => {
+            const rounded = Math.floor(latest);
+            if (rounded !== currentScene) {
+                setCurrentScene(Math.min(rounded, FOREST_SCENES.length - 1));
+            }
+        });
+        return () => unsubscribe();
+    }, [sceneIndex, currentScene]);
+
 
     return (
         <div ref={containerRef} className="relative h-[800vh] bg-[#87CEEB] overflow-hidden">
@@ -96,7 +95,7 @@ export default function ForestStoryStage() {
                 {/* Character Layer (Moves slightly different to keep center focus but feeling of travel) */}
                 <div className="absolute bottom-[100px] left-1/2 transform -translate-x-1/2 z-30">
                     <Raccoon
-                        action={(currentScene < 6 ? scenes[currentScene]?.action : 'tea') as RaccoonAction}
+                        action={(FOREST_SCENES[currentScene]?.action || 'tea') as RaccoonAction}
                     />
                 </div>
 
@@ -110,7 +109,7 @@ export default function ForestStoryStage() {
                         transition={{ duration: 0.5 }}
                     >
                         <h2 className="text-5xl font-yeogiottae text-white drop-shadow-md text-stroke-2">
-                            {scenes[currentScene]?.text}
+                            {FOREST_SCENES[currentScene]?.text}
                         </h2>
                     </motion.div>
                 </div>

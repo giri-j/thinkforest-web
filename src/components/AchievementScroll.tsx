@@ -8,20 +8,9 @@ import BookModal from './BookModal';
 
 gsap.registerPlugin(ScrollTrigger);
 
-type Book = {
-  id: number;
-  title: string;
-  image: string;
-  description: string;
-  slug: string;
-};
+import { Book } from '../types';
+import { BOOKS } from '../constants/data';
 
-const books: Book[] = [
-  { id: 1, title: '프로젝트 A', image: '/bookcover1.png', description: '회사 A에서 PM으로 다양한 프로젝트를 리드함.', slug: 'project-a' },
-  { id: 2, title: '브랜드 콜라보', image: '/bookcover2.png', description: '브랜드 B와 아트웍 콜라보를 진행함.', slug: 'brand-collab' },
-  { id: 3, title: 'UX 전략 리뉴얼', image: '/bookcover3.png', description: '스타트업 UX 리뉴얼 전략을 수립하고 실행.', slug: 'ux-renewal' },
-  { id: 4, title: '기획 강의 제작', image: '/bookcover4.png', description: '강의 플랫폼을 위한 기획 강의 영상 콘텐츠 제작.', slug: 'lecture-production' },
-];
 
 export default function AchievementScroll() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -33,7 +22,7 @@ export default function AchievementScroll() {
   const [rotationAngle, setRotationAngle] = useState(0);
   const [selectedBook, setSelectedBook] = useState<Book | null>(null);
 
-  const totalBooks = books.length;
+  const totalBooks = BOOKS.length;
   const angleStep = 360 / totalBooks;
   const radius = 250;
 
@@ -126,7 +115,7 @@ export default function AchievementScroll() {
           className="relative w-[280px] h-[380px] transition-transform duration-500"
           style={{ transformStyle: 'preserve-3d' }}
         >
-          {books.map((book, index) => {
+          {BOOKS.map((book: Book, index: number) => {
             const angle = angleStep * index;
             return (
               <div

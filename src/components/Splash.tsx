@@ -35,9 +35,6 @@ export default function Splash() {
         <span className="opacity-0 animate-fade-letter" style={{ animationDelay: '900ms' }}>
           숲
         </span>
-        <span className="text-xl mt-4 opacity-0 animate-[fadeIn_1s_ease-out_1.5s_forwards] font-light text-forest-highlight">
-          🌿 숲을 조성하는 중...
-        </span>
       </div>
     </div>
   );

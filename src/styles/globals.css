@@ -18,20 +18,55 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 기본 Pretendard 유지 */
-body {
-  font-family: 'Pretendard', sans-serif;
-  background-color: #F5F5E6;
-  /* forest-base */
-  color: #1F2A22;
-  /* forest-text */
-  cursor: default;
-  /* 커서는 CursorEffect로 대체하지만 기본값 유지 */
+@layer base {
+  body {
+    @apply bg-forest-base text-forest-text antialiased;
+    font-family: 'Pretendard', sans-serif;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-xl;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-forest-main to-forest-light;
+  }
+
+  .nav-link {
+    @apply relative overflow-hidden transition-colors duration-300 hover:text-forest-main;
+  }
+
+  .nav-link::after {
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-forest-main transform scale-x-0 transition-transform duration-300 origin-right;
+  }
+
+  .nav-link:hover::after {
+    @apply scale-x-100 origin-left;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5E6;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2E5C38;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1F2A22;
 }
 
 ::selection {
   background-color: #D4E157;
-  /* forest-highlight */
   color: #1F2A22;
 }
 

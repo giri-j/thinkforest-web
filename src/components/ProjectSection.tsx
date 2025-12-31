@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { motion } from 'framer-motion';
 
 interface ProjectSectionProps {
   id: string;
@@ -22,55 +23,67 @@ export default function ProjectSection({
   link,
 }: ProjectSectionProps) {
   return (
-    <section id={id} className="w-full min-h-screen bg-white text-black border-t border-gray-200">
-      {/* 상단 타이틀 + 버튼 */}
-      <div className="w-full flex justify-between items-center pl-64 pr-12 py-6 border-b border-gray-300">
-        <h2 className="text-xl md:text-2xl font-semibold">{heading}</h2>
-        {link && (
-          <a
-            href={link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-500 text-xs font-medium inline-flex items-center gap-1 hover:underline transition"
-          >
-            <span className="align-middle">더보기</span>
-            <span className="text-sm align-middle">›</span>
-          </a>
-        )}
-      </div>
+    <section id={id} className="w-full py-32 border-b border-forest-main/10 flex flex-col items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-100px" }}
+        className="w-full max-w-6xl px-6"
+      >
+        <div className="flex flex-col md:flex-row justify-between items-baseline mb-12 border-b border-forest-main/5 pb-6">
+          <h2 className="text-sm font-medium tracking-[0.2em] uppercase text-forest-main/40">{heading}</h2>
+          {year && <span className="text-xs font-light text-forest-text/30">{year}</span>}
+        </div>
 
-      {/* 본문 */}
-      <div className="flex w-full h-[calc(100vh-80px)]">
-        <aside className="w-[220px] border-r border-gray-300 px-6 py-6 hidden lg:block" />
-        <div className="flex-1 border-r border-gray-300 relative p-6">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            style={{ objectFit: 'contain' }}
-            className="p-6" // Add padding to image instead of container since container is relative/fill
-          />
-        </div>
-        <div className="w-[500px] h-[500px] m-12 border border-gray-400 p-6 text-sm flex flex-col justify-between">
-          <div>
-            <h3 className="text-2xl font-bold mb-2">{title}</h3>
-            <p className="mb-3">{description}</p>
-            <p className="text-gray-600">역할: {role}</p>
-            <p className="text-gray-500">연도: {year}</p>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            whileHover={{ scale: 1.02 }}
+            className="relative aspect-video lg:aspect-square glass-card rounded-[40px] overflow-hidden group"
+          >
+            <div className="absolute inset-0 bg-gradient-to-tr from-forest-main/5 to-transparent z-10" />
+            <Image
+              src={image}
+              alt={title}
+              fill
+              className="object-contain p-12 group-hover:scale-105 transition-transform duration-700"
+            />
+          </motion.div>
+
+          <div className="space-y-8">
+            <h3 className="text-4xl md:text-5xl font-yeogiottae text-forest-text leading-tight">{title}</h3>
+
+            <p className="text-lg text-forest-text/60 font-light leading-relaxed">
+              {description}
+            </p>
+
+            <div className="grid grid-cols-2 gap-6 pt-4">
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold tracking-widest uppercase text-forest-main/40">Role</span>
+                <p className="text-sm font-medium text-forest-text/80">{role}</p>
+              </div>
+              <div className="space-y-1">
+                <span className="text-[10px] font-bold tracking-widest uppercase text-forest-main/40">Period</span>
+                <p className="text-sm font-medium text-forest-text/80">{year}</p>
+              </div>
+            </div>
+
+            {link && (
+              <div className="pt-6">
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-forest-main text-white text-sm font-medium hover:bg-forest-main/90 transition-all shadow-lg shadow-forest-main/10"
+                >
+                  Visit Project
+                  <span className="text-lg">›</span>
+                </a>
+              </div>
+            )}
           </div>
-          {link && (
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-500 text-xs font-medium inline-flex items-center gap-1 hover:underline transition"
-            >
-              <span className="align-middle">더보기</span>
-              <span className="text-sm align-middle">›</span>
-            </a>
-          )}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
+
