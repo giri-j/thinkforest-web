@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ReactNode } from 'react';
 import { NAV_ITEMS } from '../constants/data';
 import CursorEffect from './CursorEffect';
@@ -34,6 +35,7 @@ export default function Layout({ title = '기획의 숲', children }: LayoutProp
       <Head>
         <title>{title}</title>
         <meta name="description" content="기획의 숲 - 기리의 포트폴리오와 블로그 공간" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
       </Head>
 
       <CursorEffect />
@@ -41,13 +43,20 @@ export default function Layout({ title = '기획의 숲', children }: LayoutProp
       <div className="min-h-screen bg-forest-base text-forest-text font-sans relative flex flex-col">
         <header
           className={`fixed top-0 left-0 w-full py-6 px-12 z-50 transition-all duration-500 ${isVisible
-              ? 'translate-y-0 opacity-100 bg-white/5 backdrop-blur-[2px]'
-              : '-translate-y-full opacity-0'
+            ? 'translate-y-0 opacity-100 bg-white/5 backdrop-blur-[2px]'
+            : '-translate-y-full opacity-0'
             }`}
         >
           <nav className="max-w-7xl mx-auto flex justify-between items-center">
-            <Link href="/" className="text-2xl font-yeogiottae text-forest-main hover:opacity-80 transition-opacity">
-              기획의 숲
+            <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+              <Image
+                src="/images/think-forest-logo.svg"
+                alt="기획의 숲"
+                width={180}
+                height={75}
+                className="h-14 w-auto"
+                priority
+              />
             </Link>
             <div className="flex gap-8 text-sm font-medium tracking-wide items-center uppercase">
               {NAV_ITEMS.map((item) => (
@@ -71,7 +80,15 @@ export default function Layout({ title = '기획의 숲', children }: LayoutProp
         <footer className="border-t border-forest-main/10 bg-white/30 backdrop-blur-sm py-16 px-12">
           <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="text-center md:text-left">
-              <h3 className="text-xl font-yeogiottae text-forest-main mb-2">기획의 숲</h3>
+              <Link href="/">
+                <Image
+                  src="/images/think-forest-logo.svg"
+                  alt="기획의 숲"
+                  width={180}
+                  height={75}
+                  className="h-14 w-auto mb-2"
+                />
+              </Link>
               <p className="text-sm text-forest-text/60">가꾸고 기획하며 성장하는 공간</p>
             </div>
 

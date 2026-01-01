@@ -34,7 +34,7 @@ export const PROJECTS = [
         title: "Cellook Platform",
         description: "여성의류 쇼핑몰 플랫폼 런칭을 위한 UX 기획",
         role: "UI/UX 설계, 기획안 작성",
-        year: "2023",
+        year: "2022",
         link: "https://www.instagram.com/cellook.kr/"
     },
     {
@@ -83,7 +83,7 @@ export const PROJECTS = [
         title: "스마트픽 서비스 운영",
         description: "와인 스마트픽 서비스 운영 및 개선 기획",
         role: "운영 프로세스 설계, 개선안 제시",
-        year: "2022"
+        year: "2019"
     },
     {
         id: "lotte-shipping",
@@ -92,7 +92,7 @@ export const PROJECTS = [
         title: "롯데닷컴 배송 품질 개선",
         description: "고객 배송 만족도 향상을 위한 분석 및 개선",
         role: "VOC 분석, 배송 정책 제안",
-        year: "2022"
+        year: "2016"
     },
     {
         id: "pickup-edu",
@@ -101,7 +101,7 @@ export const PROJECTS = [
         title: "스마트픽 교육 영상 제작",
         description: "전국 매장 대상의 서비스 가이드 영상 기획",
         role: "기획, 대본 구성, 영상 제작 관리",
-        year: "2023"
+        year: "2018"
     },
     {
         id: "lux-cosmetics",
@@ -128,7 +128,7 @@ export const PROJECTS = [
         title: "IR Deck 제작",
         description: "투자 유치를 위한 IR 자료 기획 및 디자인",
         role: "자료 기획, 시나리오 구성, 디자인 디렉션",
-        year: "2024"
+        year: "2022"
     },
     {
         id: "workshop",
@@ -146,7 +146,7 @@ export const PROJECTS = [
         title: "사내 시스템 교육",
         description: "신입 및 전사 직원 대상 사내 시스템 교육 운영",
         role: "교육안 기획 및 교육 진행",
-        year: "2023"
+        year: "2018"
     },
     {
         id: "play",
@@ -155,7 +155,7 @@ export const PROJECTS = [
         title: "사랑에 관한 5가지 소묘 주연",
         description: "연극무대에서의 창의적인 표현과 팀워크 경험",
         role: "배우 (주연), 대본 리딩 및 공연",
-        year: "2022"
+        year: "2016"
     },
     {
         id: "univ-talk",
@@ -164,7 +164,7 @@ export const PROJECTS = [
         title: "대학생 대상 진로 강연 및 상담",
         description: "대외활동 경험 공유 및 진로 컨설팅 진행",
         role: "강연, 멘토링",
-        year: "2023"
+        year: "2018"
     },
     {
         id: "youtube",
