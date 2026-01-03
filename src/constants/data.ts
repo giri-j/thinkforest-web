@@ -20,7 +20,7 @@ export const PROJECTS = [
     {
         id: "nitsoft",
         heading: "1-1. IT기획 > 메시지 발송 플랫폼 'NITSOFT' (웹앱기획)",
-        image: "/images/project-nitsoft.png",
+        image: "/images/project_msg.gif",
         title: "NITSOFT Messaging Service",
         description: "기업용 문자 발송 통합 플랫폼",
         role: "UX 설계, 정보 구조 설계, 주요 기능 정의",
@@ -38,13 +38,14 @@ export const PROJECTS = [
         link: "https://www.instagram.com/cellook.kr/"
     },
     {
-        id: "showa-edu",
+        id: "sgroup-edu",
         heading: "1-3. IT기획 > 'S'그룹 DX 교육 플랫폼",
-        image: "/images/project-showaedu.png",
+        image: "/images/project-samoo.gif",
         title: "DX 사내교육 플랫폼 구축",
         description: "전사 DX 교육을 위한 통합 플랫폼 기획",
         role: "기획, 커리큘럼 구성, 개발 커뮤니케이션",
-        year: "2024"
+        year: "2024",
+        linkText: "사내 전용 사이트"
     },
     {
         id: "artch",
@@ -59,7 +60,7 @@ export const PROJECTS = [
     {
         id: "revind",
         heading: "1-5. IT기획 > Re:vind - 멀티 링크 서비스",
-        image: "/images/project-revind.png",
+        image: "/images/project_revind.gif",
         title: "Re:vind 서비스 구축",
         description: "SNS 프로필을 위한 멀티 링크 서비스 기획",
         role: "UX 기획, 웹앱 설계",
@@ -78,21 +79,26 @@ export const PROJECTS = [
     },
     {
         id: "wine-pickup",
-        heading: "2-1. 운영기획 > 스마트픽 서비스 운영",
+        heading: "2-1. 운영기획 > 'L'그룹 O4O 매장픽업 서비스 운영",
         image: "/images/project-winepickup.png",
-        title: "스마트픽 서비스 운영",
-        description: "와인 스마트픽 서비스 운영 및 개선 기획",
+        images: [
+            "/images/project-smartpick1.jpg",
+            "/images/project-smartpick2.jpg",
+            "/images/project-smartpick3.jpg"
+        ],
+        title: "'L'그룹 온라인 주문 후 오프라인 매장 픽업 서비스 운영",
+        description: "'스마트픽' 서비스 사용자 교육(백화점 매니저 대상)\n'스마트픽' 운영 시스템 '파트너 플러스' 운영/관리 및 개선",
         role: "운영 프로세스 설계, 개선안 제시",
-        year: "2019"
+        year: "2018~2021"
     },
     {
         id: "lotte-shipping",
-        heading: "2-2. 운영기획 > 롯데닷컴 배송 품질 개선",
+        heading: "2-2. 운영기획 > 'L'그룹 온라인몰 배송 정책/품질 개선",
         image: "/images/project-lottedelivery.png",
         title: "롯데닷컴 배송 품질 개선",
         description: "고객 배송 만족도 향상을 위한 분석 및 개선",
         role: "VOC 분석, 배송 정책 제안",
-        year: "2016"
+        year: "2014~2018"
     },
     {
         id: "pickup-edu",
@@ -187,10 +193,9 @@ export const PROJECTS = [
 ];
 
 export const NAV_ITEMS = [
-    { href: '/', label: 'Home', icon: '🏡' },
-    { href: '/insight', label: 'Insight', icon: '💡' },
-    { href: '/journal', label: 'Journal', icon: '📓' },
-    { href: '/about', label: 'About me', icon: '👩‍🌾' },
-    { href: '/project', label: 'My history', icon: '🌲' },
+    { href: '/insight', label: 'Insight' },
+    { href: '/journal', label: 'Journal' },
+    { href: '/about', label: 'about' },
+    { href: '/project', label: 'My history' },
 ];
 

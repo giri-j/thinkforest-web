@@ -14,6 +14,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -22,24 +29,79 @@
   body {
     @apply bg-forest-base text-forest-text antialiased;
     font-family: 'Pretendard', sans-serif;
+    background-image:
+      radial-gradient(circle at 20% 0%, rgba(143, 203, 129, 0.15) 0%, transparent 40%),
+      radial-gradient(circle at 80% 50%, rgba(29, 67, 46, 0.05) 0%, transparent 50%);
+    background-attachment: fixed;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply bg-white/40 backdrop-blur-md border border-white/20 shadow-xl;
+    @apply bg-white/10 backdrop-blur-2xl border border-white/20;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  }
+
+  .glass-card:hover {
+    @apply bg-white/20 border-white/40;
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-forest-main to-forest-light;
+    @apply bg-clip-text text-transparent bg-gradient-to-br from-white via-forest-highlight to-forest-light;
+  }
+
+  /* Organic Shapes with Floating effect */
+  .shape-leaf {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    animation: float-slow 8s ease-in-out infinite;
+  }
+
+  .shape-petal {
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    animation: float-slow 10s ease-in-out infinite reverse;
+  }
+
+  .shape-shell {
+    border-radius: 50% 50% 50% 50% / 70% 70% 30% 30%;
+    animation: float-slow 12s ease-in-out infinite;
+  }
+
+  @keyframes float-slow {
+
+    0%,
+    100% {
+      transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+      transform: translateY(-20px) rotate(1deg);
+    }
+  }
+
+  .sun-ray {
+    @apply absolute pointer-events-none opacity-20 transition-opacity duration-1000;
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.4) 0%, transparent 70%);
+    clip-path: polygon(0 0, 100% 0, 60% 100%, 40% 100%);
+  }
+
+  .daisy-ornament {
+    @apply absolute -top-3 -right-3 w-8 h-8 opacity-0 transition-all duration-500 scale-0;
+    color: #FFD700;
+  }
+
+  .glass-card:hover .daisy-ornament {
+    @apply opacity-100 scale-100 rotate-90;
   }
 
   .nav-link {
-    @apply relative overflow-hidden transition-colors duration-300 hover:text-forest-main;
+    @apply relative overflow-hidden transition-colors duration-300 hover:text-forest-main font-medium;
   }
 
   .nav-link::after {
-    @apply content-[''] absolute bottom-0 left-0 w-full h-[1px] bg-forest-main transform scale-x-0 transition-transform duration-300 origin-right;
+    @apply content-[''] absolute bottom-0 left-0 w-full h-[2px] bg-forest-highlight transform scale-x-0 transition-transform duration-500 origin-right;
   }
 
   .nav-link:hover::after {
@@ -49,25 +111,19 @@
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #F5F5E6;
+  @apply bg-forest-base;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2E5C38;
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #1F2A22;
+  @apply bg-forest-light/30 rounded-full border-4 border-solid border-forest-base hover:bg-forest-main/50 transition-colors;
 }
 
 ::selection {
-  background-color: #D4E157;
-  color: #1F2A22;
+  @apply bg-forest-highlight/50 text-forest-text;
 }
 
 html {

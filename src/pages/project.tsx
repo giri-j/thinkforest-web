@@ -52,6 +52,8 @@ export default function ProjectPage() {
               role={project.role}
               year={project.year}
               link={project.link}
+              linkText={(project as any).linkText}
+              images={(project as any).images}
             />
           ))}
         </div>
