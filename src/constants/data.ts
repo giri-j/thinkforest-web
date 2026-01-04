@@ -94,7 +94,7 @@ export const PROJECTS = [
     {
         id: "lotte-shipping",
         heading: "2-2. 운영기획 > 'L'그룹 온라인몰 배송 정책/품질 개선",
-        image: "/images/project-lottedelivery.png",
+        image: "/images/project-lottecom.jpg",
         title: "롯데닷컴 배송 품질 개선",
         description: "고객 배송 만족도 향상을 위한 분석 및 개선",
         role: "VOC 분석, 배송 정책 제안",
