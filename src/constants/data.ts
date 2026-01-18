@@ -195,7 +195,9 @@ export const PROJECTS = [
 export const NAV_ITEMS = [
     { href: '/insight', label: 'Insight' },
     { href: '/journal', label: 'Journal' },
-    { href: '/about', label: 'about' },
-    { href: '/project', label: 'My history' },
+    { href: '/case-study', label: 'Case Study' },
+    { href: '/project', label: 'Project' },
+    { href: '/about', label: 'About' },
+    { href: '/contact', label: 'Contact' },
 ];
 

@@ -97,7 +97,7 @@ export default function Home() {
                   hasDaisy: true
                 },
                 {
-                  title: "History",
+                  title: "Project",
                   desc: "기획의 발자취들",
                   link: "/project",
                   icon: "🌲",

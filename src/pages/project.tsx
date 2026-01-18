@@ -7,7 +7,7 @@ import { motion } from 'framer-motion';
 
 export default function ProjectPage() {
   return (
-    <Layout title="My History - 기획의 숲">
+    <Layout title="Project - 기획의 숲">
       <div className="relative">
         <ProjectNavigation />
 
@@ -25,7 +25,7 @@ export default function ProjectPage() {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-6xl font-yeogiottae text-forest-text"
           >
-            My History
+            Project
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
