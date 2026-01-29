@@ -13,11 +13,34 @@ export type Scene = {
 };
 
 export type Project = {
-    id: number;
-    title: string;
-    category: string;
-    description: string;
-    tags: string[];
+    id: string;
+    heading: string;
     image: string;
+    title: string;
+    description: string;
+    role: string;
+    year: string;
+    link?: string;
+    linkText?: string;
+    images?: string[];
+};
+
+export type CaseStudyDetail = {
+    purpose: string;
+    problem: string;
+    role: string;
+    points: { title: string; desc: string }[];
+    results: string[];
+    insights: string[];
+};
+
+export type CaseStudy = {
+    id: string;
+    title: string;
+    period: string;
+    description: string;
+    summary: string;
+    tags: string[];
     color: string;
+    details?: CaseStudyDetail;
 };

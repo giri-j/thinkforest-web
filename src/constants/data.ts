@@ -1,4 +1,4 @@
-import { Book, Scene } from '../types';
+import { Book, Scene, Project, CaseStudy } from '../types';
 
 export const BOOKS: Book[] = [
     { id: 1, title: '프로젝트 A', image: '/bookcover1.png', description: '회사 A에서 PM으로 다양한 프로젝트를 리드함.', slug: 'project-a' },
@@ -189,6 +189,100 @@ export const PROJECTS = [
         description: "나의 일과 삶을 위한 장기 로드맵 수립",
         role: "자기 성찰, 비전 수립",
         year: "2025"
+    }
+];
+
+export const CASE_STUDIES: CaseStudy[] = [
+    {
+        id: "lotte-order-improvement",
+        title: "롯데닷컴 주문완료율 개선 프로젝트",
+        period: "2014~2018",
+        description: "고객 이탈 패턴 분석 및 결제 프로세스 최적화를 통한 주문 전환율 극대화",
+        summary: "데이터 기반의 UX 개선으로 실질적인 매출 증대 기여",
+        tags: ["Data Analysis", "UX Optimization", "Conversion"],
+        color: "#E60012",
+        details: {
+            purpose: "대한민국 최초의 온라인 쇼핑몰 '롯데닷컴'의 온라인 주문 결품/반품율을 개선하여 매출 손실을 최소화",
+            problem: "매월 700억 매출 중 약 15%(105억)가 취소 및 반품으로 손실 발생. 특히 전체 주문의 3%에 달하는 '결품' 문제에 집중.",
+            role: "QCM 파트 팀원 및 파트장 (4년간 수행). 정책 수립 및 현장 관리 총괄.",
+            points: [
+                { title: "관리자 시스템 교육", desc: "전국 10,000여개 백화점 매장 매니저 대상 '파트너플러스' 앱 교육 실시" },
+                { title: "현장 밀착형 계도", desc: "결품율 상위 매장 방문, 창고 동선 효율화 및 시스템 개선안(알림 기능 등) 반영" },
+                { title: "배송 정책 최적화", desc: "배송 할당 정책 변경(1+1+1 -> 2+1)을 통한 실질적 배송 기일 단축 및 결품 예방" }
+            ],
+            results: [
+                "결품율 3% -> 1.5%로 개선 (월 10.5억 매출 손실 방어)",
+                "교육을 통한 인적 개선 효과 약 0.5% 달성",
+                "정책/시스템 고도화를 통한 구조적 개선 효과 약 1% 달성"
+            ],
+            insights: [
+                "인적 노력보다 시스템적 설계 변경이 더 지속적이고 큰 효과를 낸다.",
+                "효과적인 시스템 개선을 위해서는 현장의 목소리를 듣는 '인적 노력'이 선행되어야 한다."
+            ]
+        }
+    },
+    {
+        id: "lotte-o4o-smartpick",
+        title: "롯데닷컴 O4O 서비스 스마트픽 시스템 관리",
+        period: "2018~2021",
+        description: "온-오프라인 통합 픽업 서비스 '스마트픽' 운영 및 파트너 시스템 고도화",
+        summary: "전국 유통망을 연결하는 옴니채널 서비스 운영 리딩",
+        tags: ["O4O", "System Management", "Operation"],
+        color: "#005EB8"
+    },
+    {
+        id: "gray-gray-ir",
+        title: "그린앤그레이 IR을 통한 50억 유치",
+        period: "2022",
+        description: "스타트업 성장 전략 수립 및 핵심 지표 시각화를 통한 성공적인 투자 유치",
+        summary: "비즈니스 모델 고도화 및 IR Deck 기획/제작 총괄",
+        tags: ["Business Strategy", "IR", "Investment"],
+        color: "#4CAF50"
+    },
+    {
+        id: "cellook-backoffice",
+        title: "셀룩 서비스 백오피스 기획",
+        period: "2022",
+        description: "패션 플랫폼 운영 효율화를 위한 어드민 시스템 설계 및 프로세스 정의",
+        summary: "복잡한 정산 및 배송 관리 프로세스의 디지털 전환",
+        tags: ["Backoffice", "Admin Design", "Process Design"],
+        color: "#FF4081"
+    },
+    {
+        id: "revind-planning",
+        title: "리바인드 서비스 기획",
+        period: "2023",
+        description: "멀티 링크 플랫폼의 핵심 사용자 가치 정의 및 MVP 기능 상세 설계",
+        summary: "초기 서비스의 UX 전략 및 시장 진입 로드맵 수립",
+        tags: ["UX Planning", "MVP", "Service Strategy"],
+        color: "#6200EE"
+    },
+    {
+        id: "artch-planning",
+        title: "아치 서비스 기획",
+        period: "2024",
+        description: "아티스트와 기업을 연결하는 아트 매칭 플랫폼 비즈니스 모델 및 UX 기획",
+        summary: "예술 생태계의 비즈니스 연결을 위한 플랫폼 구조화",
+        tags: ["Art-Tech", "Platform Planning", "UX"],
+        color: "#000000"
+    },
+    {
+        id: "messaging-platform",
+        title: "메시지 플랫폼 기획",
+        period: "2024",
+        description: "기업형 대량 메시지 발송 시스템의 안정성 확보 및 사용자 대시보드 개선",
+        summary: "B2B 솔루션의 편의성 및 데이터 가독성 강화",
+        tags: ["B2B", "Messaging System", "UI/UX"],
+        color: "#3F51B5"
+    },
+    {
+        id: "sgroup-edu-platform",
+        title: "'S'그룹 교육 플랫폼 기획 (SI)",
+        period: "2024",
+        description: "대기업 DX 교육 환경에 최적화된 학습 관리 시스템(LMS) 요구사항 분석 및 기획",
+        summary: "엔터프라이즈 환경의 대규모 교육 플랫폼 구축 리딩",
+        tags: ["SI", "LMS", "Enterprise"],
+        color: "#1A237E"
     }
 ];
 
