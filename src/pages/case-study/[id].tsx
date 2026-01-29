@@ -11,116 +11,178 @@ export default function CaseStudyDetailPage() {
 
     if (!study) return null;
 
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.15
+            }
+        }
+    };
+
+    const sectionVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" as any }
+        }
+    };
+
     return (
         <Layout title={`${study.title} - Case Study`}>
-            <div className="max-w-4xl mx-auto py-24 px-6">
-                <Link href="/case-study" className="inline-flex items-center gap-2 text-forest-main/60 hover:text-forest-main transition-colors mb-12 group">
-                    <svg className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    <span>Back to List</span>
-                </Link>
+            <div className="relative overflow-hidden min-h-screen bg-forest-base">
+                {/* Background decorative elements */}
+                <div className="absolute top-0 left-0 w-full h-[600px] bg-gradient-to-b from-forest-main/10 to-transparent -z-10" />
+                <div className="absolute top-[20%] -right-20 w-80 h-80 bg-forest-highlight/5 blur-[120px] rounded-full -z-10" />
 
-                <header className="mb-20 space-y-8">
-                    <div className="space-y-4">
-                        <span className="text-sm font-maru font-medium text-forest-main tracking-widest px-3 py-1 rounded-full bg-forest-main/5 uppercase">
-                            {study.period}
-                        </span>
-                        <h1 className="text-4xl md:text-6xl font-yeogiottae text-forest-text leading-tight">
-                            {study.title}
-                        </h1>
-                    </div>
-                    <p className="text-2xl text-forest-text/60 font-maru font-light leading-relaxed italic border-l-4 border-forest-main/20 pl-6">
-                        &ldquo;{study.summary}&rdquo;
-                    </p>
-                </header>
+                <div className="max-w-5xl mx-auto py-24 px-6 relative z-10">
+                    <Link href="/case-study" className="inline-flex items-center gap-3 text-forest-main/60 hover:text-forest-main transition-all mb-16 group font-maru font-bold text-sm tracking-widest">
+                        <div className="w-10 h-10 rounded-full border border-forest-main/20 flex items-center justify-center group-hover:border-forest-main/40 transition-colors">
+                            <svg className="w-4 h-4 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                            </svg>
+                        </div>
+                        <span>LIST VIEW</span>
+                    </Link>
 
-                <div className="space-y-24">
-                    {study.details && (
-                        <>
-                            <section className="space-y-8">
-                                <h2 className="text-2xl font-yeogiottae text-forest-text flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-forest-main/10 text-forest-main flex items-center justify-center text-sm font-bold font-maru">01</span>
-                                    프로젝트 목적
-                                </h2>
-                                <div className="glass-card p-8 rounded-3xl border-white/10 text-forest-text/80 text-lg leading-relaxed font-maru">
-                                    {study.details.purpose}
-                                </div>
-                            </section>
+                    <header className="mb-32 space-y-10">
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="space-y-6"
+                        >
+                            <div className="flex items-center gap-4">
+                                <span className="text-xs font-bold text-forest-main tracking-[0.3em] px-4 py-1.5 rounded-full bg-forest-main/10 uppercase">
+                                    {study.period}
+                                </span>
+                                <div className="h-[1px] w-12 bg-forest-main/30" />
+                                <span className="text-xs font-maru font-medium text-forest-text/40 tracking-widest uppercase">
+                                    {study.category}
+                                </span>
+                            </div>
+                            <h1 className="text-5xl md:text-7xl font-yeogiottae text-forest-text leading-[1.1] tracking-tight">
+                                {study.title}
+                            </h1>
+                        </motion.div>
 
-                            <section className="space-y-8">
-                                <h2 className="text-2xl font-yeogiottae text-forest-text flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-forest-main/10 text-forest-main flex items-center justify-center text-sm font-bold font-maru">02</span>
-                                    문제 정의
-                                </h2>
-                                <div className="glass-card p-8 rounded-3xl border-white/10 text-forest-text/80 text-lg leading-relaxed font-maru">
-                                    {study.details.problem}
-                                </div>
-                            </section>
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 0.3 }}
+                            className="relative"
+                        >
+                            <p className="text-2xl md:text-3xl text-forest-text/70 font-maru font-light leading-relaxed italic border-l-[6px] border-forest-main/40 pl-8 md:pl-12">
+                                &ldquo;{study.summary}&rdquo;
+                            </p>
+                        </motion.div>
+                    </header>
 
-                            <section className="space-y-8">
-                                <h2 className="text-2xl font-yeogiottae text-forest-text flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-forest-main/10 text-forest-main flex items-center justify-center text-sm font-bold font-maru">03</span>
-                                    나의 역할과 접근방식
-                                </h2>
-                                <div className="glass-card p-8 rounded-3xl border-white/10 text-forest-text/80 text-lg leading-relaxed font-maru">
-                                    {study.details.role}
-                                </div>
-                            </section>
-
-                            <section className="space-y-8">
-                                <h2 className="text-2xl font-yeogiottae text-forest-text flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-forest-main/10 text-forest-main flex items-center justify-center text-sm font-bold font-maru">04</span>
-                                    핵심 개선 포인트
-                                </h2>
-                                <div className="grid grid-cols-1 gap-6">
-                                    {study.details.points.map((point, idx) => (
-                                        <div key={idx} className="glass-card p-8 rounded-3xl border-white/10 group hover:border-forest-main/30 transition-colors">
-                                            <h3 className="text-xl font-yeogiottae text-forest-main mb-3">{point.title}</h3>
-                                            <p className="text-forest-text/70 leading-relaxed font-maru">{point.desc}</p>
+                    <motion.div
+                        variants={containerVariants}
+                        initial="hidden"
+                        animate="visible"
+                        className="space-y-40"
+                    >
+                        {study.details && (
+                            <>
+                                <motion.section variants={sectionVariants} className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                                    <h2 className="text-xl font-yeogiottae text-forest-main/40 tracking-widest uppercase md:pt-2">01. Goal</h2>
+                                    <div className="md:col-span-3">
+                                        <div className="glass-card p-10 rounded-[40px] border-white/5 text-forest-text/90 text-2xl leading-relaxed font-maru font-light">
+                                            {study.details.purpose}
                                         </div>
-                                    ))}
-                                </div>
-                            </section>
+                                    </div>
+                                </motion.section>
 
-                            <section className="space-y-8">
-                                <h2 className="text-2xl font-yeogiottae text-forest-text flex items-center gap-4">
-                                    <span className="w-8 h-8 rounded-full bg-forest-main/10 text-forest-main flex items-center justify-center text-sm font-bold font-maru">05</span>
-                                    성과 및 결과
-                                </h2>
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                                    {study.details.results.map((result, idx) => (
-                                        <div key={idx} className="glass-card p-6 rounded-2xl border-white/10 text-center">
-                                            <p className="text-forest-text/80 font-maru text-sm leading-relaxed">{result}</p>
+                                <motion.section variants={sectionVariants} className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                                    <h2 className="text-xl font-yeogiottae text-forest-main/40 tracking-widest uppercase md:pt-2">02. Problem</h2>
+                                    <div className="md:col-span-3">
+                                        <div className="glass-card p-10 rounded-[40px] border-white/5 text-forest-text/80 text-xl leading-relaxed font-maru font-light">
+                                            {study.details.problem}
                                         </div>
-                                    ))}
-                                </div>
-                            </section>
+                                    </div>
+                                </motion.section>
 
-                            <section className="relative overflow-hidden glass-card p-12 rounded-[40px] border-forest-main/20 bg-forest-main/[0.02]">
-                                <div className="relative z-10 space-y-8">
-                                    <h2 className="text-3xl font-yeogiottae text-forest-main">INSIGHTS</h2>
-                                    <div className="space-y-6">
-                                        {study.details.insights.map((insight, idx) => (
-                                            <div key={idx} className="flex gap-4">
-                                                <span className="text-forest-main font-bold mt-1">✓</span>
-                                                <p className="text-xl text-forest-text/90 font-maru font-light leading-relaxed">{insight}</p>
+                                <motion.section variants={sectionVariants} className="grid grid-cols-1 md:grid-cols-4 gap-12">
+                                    <h2 className="text-xl font-yeogiottae text-forest-main/40 tracking-widest uppercase md:pt-2">03. My Role</h2>
+                                    <div className="md:col-span-3">
+                                        <div className="glass-card p-10 rounded-[40px] border-white/5 text-forest-text/80 text-xl leading-relaxed font-maru font-light">
+                                            {study.details.role}
+                                        </div>
+                                    </div>
+                                </motion.section>
+
+                                <motion.section variants={sectionVariants} className="space-y-16">
+                                    <div className="flex items-center gap-6">
+                                        <h2 className="text-xl font-yeogiottae text-forest-main/40 tracking-widest uppercase">04. Key Actions</h2>
+                                        <div className="h-[1px] flex-grow bg-forest-main/10" />
+                                    </div>
+                                    <div className="grid grid-cols-1 gap-10">
+                                        {study.details.points.map((point, idx) => (
+                                            <div key={idx} className="group relative">
+                                                <div className="absolute -left-6 top-0 bottom-0 w-[2px] bg-forest-main/10 group-hover:bg-forest-main/40 transition-colors" />
+                                                <div className="pl-6 space-y-4">
+                                                    <h3 className="text-2xl font-yeogiottae text-forest-text group-hover:text-forest-main transition-colors">{point.title}</h3>
+                                                    <p className="text-forest-text/60 text-lg leading-relaxed font-maru font-light max-w-3xl">{point.desc}</p>
+                                                </div>
                                             </div>
                                         ))}
                                     </div>
-                                </div>
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-forest-main/5 blur-[100px] -z-0" />
-                            </section>
-                        </>
-                    )}
-                </div>
+                                </motion.section>
 
-                <div className="mt-32 pb-20 text-center">
-                    <Link href="/case-study">
-                        <button className="px-10 py-5 bg-forest-main text-white rounded-2xl font-bold shadow-xl hover:bg-forest-main/90 transition-all border border-white/10">
-                            목록으로 돌아가기
-                        </button>
-                    </Link>
+                                <motion.section variants={sectionVariants} className="space-y-16">
+                                    <div className="flex items-center gap-6">
+                                        <h2 className="text-xl font-yeogiottae text-forest-main/40 tracking-widest uppercase">05. Outcome</h2>
+                                        <div className="h-[1px] flex-grow bg-forest-main/10" />
+                                    </div>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                        {study.details.results.map((result, idx) => (
+                                            <div key={idx} className="glass-card p-8 rounded-[30px] border-white/5 bg-forest-main/[0.02] flex flex-col justify-center text-center">
+                                                <p className="text-forest-text/80 font-maru text-lg leading-snug">{result}</p>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </motion.section>
+
+                                <motion.section
+                                    variants={sectionVariants}
+                                    className="relative overflow-hidden glass-card p-16 md:p-24 rounded-[60px] border-forest-main/20 bg-forest-main/[0.03] shadow-inner"
+                                >
+                                    <div className="relative z-10 space-y-12">
+                                        <div className="space-y-2">
+                                            <span className="text-forest-main font-bold tracking-[0.4em] text-xs uppercase">Core Learnings</span>
+                                            <h2 className="text-4xl md:text-5xl font-yeogiottae text-forest-text">INSIGHTS</h2>
+                                        </div>
+                                        <div className="space-y-10">
+                                            {study.details.insights.map((insight, idx) => (
+                                                <div key={idx} className="flex gap-6 items-start">
+                                                    <div className="w-10 h-10 rounded-full bg-forest-main/10 flex items-center justify-center shrink-0 mt-1">
+                                                        <span className="text-forest-main text-sm font-bold">{idx + 1}</span>
+                                                    </div>
+                                                    <p className="text-xl md:text-2xl text-forest-text/90 font-maru font-light leading-relaxed">
+                                                        {insight}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Abstract background graphics */}
+                                    <div className="absolute -bottom-20 -right-20 w-80 h-80 bg-forest-main/5 blur-[120px] rounded-full" />
+                                </motion.section>
+                            </>
+                        )}
+                    </motion.div>
+
+                    <div className="mt-48 pb-32 text-center">
+                        <Link href="/case-study">
+                            <button className="group relative px-12 py-6 bg-forest-main text-white rounded-full font-bold overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-xl shadow-forest-main/20">
+                                <span className="relative z-10">Back to Projects</span>
+                                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+                            </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         </Layout>
