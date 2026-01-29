@@ -42,5 +42,7 @@ export type CaseStudy = {
     summary: string;
     tags: string[];
     color: string;
+    category: string;
+    categoryPhrase: string;
     details?: CaseStudyDetail;
 };

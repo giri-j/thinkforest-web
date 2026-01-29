@@ -201,6 +201,8 @@ export const CASE_STUDIES: CaseStudy[] = [
         summary: "데이터 기반의 UX 개선으로 실질적인 매출 증대 기여",
         tags: ["Data Analysis", "UX Optimization", "Conversion"],
         color: "#E60012",
+        category: "매출·전환을 직접 건드린 프로젝트",
+        categoryPhrase: "돈이 새는 지점을 구조로 막은 일",
         details: {
             purpose: "대한민국 최초의 온라인 쇼핑몰 '롯데닷컴'의 온라인 주문 결품/반품율을 개선하여 매출 손실을 최소화",
             problem: "매월 700억 매출 중 약 15%(105억)가 취소 및 반품으로 손실 발생. 특히 전체 주문의 3%에 달하는 '결품' 문제에 집중.",
@@ -222,22 +224,26 @@ export const CASE_STUDIES: CaseStudy[] = [
         }
     },
     {
-        id: "lotte-o4o-smartpick",
-        title: "롯데닷컴 O4O 서비스 스마트픽 시스템 관리",
-        period: "2018~2021",
-        description: "온-오프라인 통합 픽업 서비스 '스마트픽' 운영 및 파트너 시스템 고도화",
-        summary: "전국 유통망을 연결하는 옴니채널 서비스 운영 리딩",
-        tags: ["O4O", "System Management", "Operation"],
-        color: "#005EB8"
-    },
-    {
         id: "gray-gray-ir",
         title: "그린앤그레이 IR을 통한 50억 유치",
         period: "2022",
         description: "스타트업 성장 전략 수립 및 핵심 지표 시각화를 통한 성공적인 투자 유치",
         summary: "비즈니스 모델 고도화 및 IR Deck 기획/제작 총괄",
         tags: ["Business Strategy", "IR", "Investment"],
-        color: "#4CAF50"
+        color: "#4CAF50",
+        category: "매출·전환을 직접 건드린 프로젝트",
+        categoryPhrase: "돈이 새는 지점을 구조로 막은 일"
+    },
+    {
+        id: "lotte-o4o-smartpick",
+        title: "롯데닷컴 O4O 서비스 스마트픽 시스템 관리",
+        period: "2018~2021",
+        description: "온-오프라인 통합 픽업 서비스 '스마트픽' 운영 및 파트너 시스템 고도화",
+        summary: "전국 유통망을 연결하는 옴니채널 서비스 운영 리딩",
+        tags: ["O4O", "System Management", "Operation"],
+        color: "#005EB8",
+        category: "운영·시스템을 설계한 프로젝트",
+        categoryPhrase: "돌아가게 만든 일"
     },
     {
         id: "cellook-backoffice",
@@ -246,25 +252,9 @@ export const CASE_STUDIES: CaseStudy[] = [
         description: "패션 플랫폼 운영 효율화를 위한 어드민 시스템 설계 및 프로세스 정의",
         summary: "복잡한 정산 및 배송 관리 프로세스의 디지털 전환",
         tags: ["Backoffice", "Admin Design", "Process Design"],
-        color: "#FF4081"
-    },
-    {
-        id: "revind-planning",
-        title: "리바인드 서비스 기획",
-        period: "2023",
-        description: "멀티 링크 플랫폼의 핵심 사용자 가치 정의 및 MVP 기능 상세 설계",
-        summary: "초기 서비스의 UX 전략 및 시장 진입 로드맵 수립",
-        tags: ["UX Planning", "MVP", "Service Strategy"],
-        color: "#6200EE"
-    },
-    {
-        id: "artch-planning",
-        title: "아치 서비스 기획",
-        period: "2024",
-        description: "아티스트와 기업을 연결하는 아트 매칭 플랫폼 비즈니스 모델 및 UX 기획",
-        summary: "예술 생태계의 비즈니스 연결을 위한 플랫폼 구조화",
-        tags: ["Art-Tech", "Platform Planning", "UX"],
-        color: "#000000"
+        color: "#FF4081",
+        category: "운영·시스템을 설계한 프로젝트",
+        categoryPhrase: "돌아가게 만든 일"
     },
     {
         id: "messaging-platform",
@@ -273,7 +263,31 @@ export const CASE_STUDIES: CaseStudy[] = [
         description: "기업형 대량 메시지 발송 시스템의 안정성 확보 및 사용자 대시보드 개선",
         summary: "B2B 솔루션의 편의성 및 데이터 가독성 강화",
         tags: ["B2B", "Messaging System", "UI/UX"],
-        color: "#3F51B5"
+        color: "#3F51B5",
+        category: "운영·시스템을 설계한 프로젝트",
+        categoryPhrase: "돌아가게 만든 일"
+    },
+    {
+        id: "revind-planning",
+        title: "리바인드 서비스 기획",
+        period: "2023",
+        description: "멀티 링크 플랫폼의 핵심 사용자 가치 정의 및 MVP 기능 상세 설계",
+        summary: "초기 서비스의 UX 전략 및 시장 진입 로드맵 수립",
+        tags: ["UX Planning", "MVP", "Service Strategy"],
+        color: "#6200EE",
+        category: "사업·플랫폼을 처음부터 만든 프로젝트",
+        categoryPhrase: "없는 걸 만든 일"
+    },
+    {
+        id: "artch-planning",
+        title: "아치 서비스 기획",
+        period: "2024",
+        description: "아티스트와 기업을 연결하는 아트 매칭 플랫폼 비즈니스 모델 및 UX 기획",
+        summary: "예술 생태계의 비즈니스 연결을 위한 플랫폼 구조화",
+        tags: ["Art-Tech", "Platform Planning", "UX"],
+        color: "#000000",
+        category: "사업·플랫폼을 처음부터 만든 프로젝트",
+        categoryPhrase: "없는 걸 만든 일"
     },
     {
         id: "sgroup-edu-platform",
@@ -282,7 +296,9 @@ export const CASE_STUDIES: CaseStudy[] = [
         description: "대기업 DX 교육 환경에 최적화된 학습 관리 시스템(LMS) 요구사항 분석 및 기획",
         summary: "엔터프라이즈 환경의 대규모 교육 플랫폼 구축 리딩",
         tags: ["SI", "LMS", "Enterprise"],
-        color: "#1A237E"
+        color: "#1A237E",
+        category: "대기업 SI·교육 플랫폼",
+        categoryPhrase: "복잡한 이해관계 속에서 정리한 일"
     }
 ];
 
