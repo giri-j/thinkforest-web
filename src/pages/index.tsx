@@ -1,10 +1,12 @@
 import Layout from '@/components/Layout';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import IntroAnimation from '@/components/IntroAnimation';
 
 export default function Home() {
   return (
     <Layout title="기획의 숲 - 가꾸고 기획하며 성장하는 공간" fullWidth={true} noScroll={true}>
+      <IntroAnimation />
       <div className="relative h-screen flex flex-col items-center justify-center text-center overflow-hidden">
         {/* Background Video - Positive z-index to stay above Layout background */}
         <div className="absolute inset-0 z-0">
@@ -15,7 +17,7 @@ export default function Home() {
             playsInline
             className="w-full h-full object-cover"
           >
-            <source src="/bg-homemovie.mp4" type="video/mp4" />
+            <source src="/bg-homemovie2.mp4" type="video/mp4" />
           </video>
           {/* Base Overlay */}
           <div className="absolute inset-0 bg-black/40 z-10" />
@@ -54,13 +56,10 @@ export default function Home() {
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-maru font-bold leading-[1.2] text-white tracking-tight">
-              <span className="text-gradient">기획의 숲</span>
+              기획의 숲
             </h1>
 
-            <p className="max-w-3xl mx-auto text-xl md:text-3xl text-white/80 leading-relaxed font-maru font-light">
-              생각이 모여 숲이 되고<br className="hidden md:block" />
-              아이디어의 꽃이 피어납니다
-            </p>
+
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-6">
               <Link href="/project">
@@ -131,4 +130,3 @@ export default function Home() {
     </Layout>
   );
 }
-

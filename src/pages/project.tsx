@@ -1,5 +1,4 @@
 import Layout from '@/components/Layout';
-import ProjectCover from '@/components/ProjectCover';
 import ProjectSection from '@/components/ProjectSection';
 import ProjectNavigation from '@/components/ProjectNavigation';
 import { PROJECTS } from '@/constants/data';
@@ -38,7 +37,7 @@ export default function ProjectPage() {
           </motion.p>
         </header>
 
-        <ProjectCover />
+
 
         <div className="space-y-0">
           {PROJECTS.map((project) => (
