@@ -121,7 +121,7 @@ export default function Layout({ title = '기획의 숲', children, fullWidth = 
                 />
               </Link>
               <p className="text-[14px] font-maru leading-relaxed opacity-60 hidden md:block">
-                모든 생각은 씨앗이 되고, 기획은 숲을 만듭니다.
+                생각의 씨앗을 뿌려, 기획의 숲을 만듭니다.
               </p>
             </div>
 
